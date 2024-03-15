@@ -13,6 +13,7 @@ def transform_data(df: pd.DataFrame,
                    encoder: OneHotEncoder) -> pd.DataFrame:
     """Transform the data using the provided scaler and encoder."""
     df = df.copy()
+    df[numeric_features] = df[numeric_features].astype(float)
     df.loc[:, numeric_features] = scaler.transform(df[numeric_features])
     encoded_array = encoder.transform(df[categorical_features])
     encoded_df = pd.DataFrame(
