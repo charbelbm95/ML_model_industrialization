@@ -34,8 +34,7 @@ def make_predictions(input_data: pd.DataFrame) -> np.ndarray:
     loaded_encoder = joblib.load('../models/ohe_encoder.joblib')
     loaded_model = joblib.load('../models/linear_regression_model.joblib')
     X_testing = input_data.copy()[FEATURES_LIST]
-    X_testing = preprocess_data(X_testing,
-                                NUMERIC_FEATURES, CATEGORICAL_FEATURES)
+    X_testing = preprocess_data(X_testing,NUMERIC_FEATURES, CATEGORICAL_FEATURES,'inference')
     X_testing = transform_data(
         X_testing, NUMERIC_FEATURES,
         CATEGORICAL_FEATURES, loaded_scaler, loaded_encoder

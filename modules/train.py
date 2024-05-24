@@ -31,7 +31,7 @@ def prepare_data(
     fit_transform: bool = True
 ) -> tuple[pd.DataFrame, StandardScaler, OneHotEncoder]:
     """Prepare the data by preprocessing, standardizing, and encoding."""
-    df = preprocess_data(df, numeric_features, categorical_features)
+    df = preprocess_data(df, numeric_features, categorical_features,'training')
     if fit_transform:
         df, scaler = standardize_data(df, numeric_features)
     else:
